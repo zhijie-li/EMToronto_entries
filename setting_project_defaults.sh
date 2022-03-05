@@ -1,4 +1,4 @@
-#~/usr/bin/env sh
+#!/usr/bin/env sh
 prj=\'$1\'
 echo $prj
 
