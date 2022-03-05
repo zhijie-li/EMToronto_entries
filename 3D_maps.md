@@ -13,7 +13,7 @@ $CCP4\6.4\bin\superpose.exe PDB1.pdb PDB2.pdb >out1.log
       0.843     -0.316     -0.435        8.455
 ```
 COOT SSM superimposition would produce:
-
+```
   -0.2342, -0.9443,  0.2314
   -0.4838, -0.09325,-0.8702
    0.8432, -0.3157, -0.435
