@@ -15,5 +15,5 @@ if len(sys.argv)>1:
 
 for i in j:
 
-    os.system("cryosparcm cli '{}(\"{}\",\"J{}\" )'".format(prj,action,i))
+    os.system("cryosparcm cli '{}(\"{}\",\"J{}\" )'".format(action,prj,i))
     
