@@ -196,6 +196,8 @@ for i in j:
 ```
 #start mongo
 mongo localhost:$CRYOSPARC_MONGO_PORT/meteor
+#alternatively
+cryosparcm mongo
 
 show dbs
 use meteor
