@@ -252,3 +252,13 @@ db.runCommand({collStats:'fs.chunks'})
 
 db.runCommand({compact:'fs.chunks', force:true})
 ```
+
+
+#Diretcly accessing the Meteor Mongodb using pymongo
+```
+from pymongo import MongoClient
+db=MongoClient('mongodb://localhost:39001')['meteor']
+db.get_collection('jobs')
+
+#Out[4]: Collection(Database(MongoClient(host=['localhost:39001'], document_class=dict, tz_aware=False, connect=True), 'meteor'), 'jobs')
+```
