@@ -255,12 +255,33 @@ db.runCommand({compact:'fs.chunks', force:true})
 
 
 # Diretcly accessing the Meteor Mongodb using pymongo
+See:
+https://pymongo.readthedocs.io/en/stable/tutorial.html
 ```
 from pymongo import MongoClient
 from gridfs import GridFS
+
+#get databse 'meteor'
 db=MongoClient('mongodb://localhost:39001')['meteor']
 #alternatively:
 db=MongoClient('localhost',39001)['meteor']
-db.get_collection('jobs')
+
+#get collection
+db.list_collection_names()
+cl=db.get_collection('jobs')
+cl=db['jobs']
+
+a=cl.find_one({"project_uid" : "P1","uid" : "J1"})
+
+print( a['job_type'])
+import pprint
+pprint.pprint(a)
+
+posts = db.posts
+
+
+
+
+
 gridfs = GridFS(db)
 ```
