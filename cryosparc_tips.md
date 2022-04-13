@@ -259,6 +259,8 @@ db.runCommand({compact:'fs.chunks', force:true})
 from pymongo import MongoClient
 from gridfs import GridFS
 db=MongoClient('mongodb://localhost:39001')['meteor']
+#alternatively:
+db=MongoClient('localhost',39001)['meteor']
 db.get_collection('jobs')
 gridfs = GridFS(db)
 ```
