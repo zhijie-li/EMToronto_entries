@@ -206,6 +206,10 @@ show collections
 db.<collection>.find()
 #for example:
 #db.fs.files.find()
+db.workspaces.find({'uid':'W1',"project_uid" : "P17"})
+
+#showing project settings/defaults
+db.projects.findOne({'uid':'P17'})
 
 
 db.cache_files.stats({ scale : 1024 })
