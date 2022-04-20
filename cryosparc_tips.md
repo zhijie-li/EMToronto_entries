@@ -323,6 +323,21 @@ print(filelist[0].keys())
 #                    'length', 'uploadDate', 'project_uid', 'job_uid'])
 
 
+
+for k in filelist[0]:
+    print (k,filelist[0][k])
+'''
+_id 625dc2f3db692bc69d67880d
+filename image.png
+contentType image/png
+chunkSize 2096128
+md5 bacc69dd2811da9acd832744410ba2b2
+length 28369
+uploadDate 2022-04-18 19:58:43.936000
+project_uid P17
+job_uid J208
+'''
+
 ```
 
 
