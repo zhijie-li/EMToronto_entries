@@ -344,7 +344,9 @@ job_uid J208
 
 To search a file by the 'fileid' listed in a db['events'] entry:
 ```
-e=list(db['events'].find({'project_uid':'P17','job_uid':'J208'}))
+
+
+e=list(db['events'].find({'project_uid':'P17','job_uid':'J208'},sort=[('created_at', pymongo.ASCENDING)] ))
 
 '''
 one of the image records:
