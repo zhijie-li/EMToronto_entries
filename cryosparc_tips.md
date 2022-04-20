@@ -181,7 +181,7 @@ if len(sys.argv)>1:
             j.append(i)
         elif '-' in i :
             a,b=i.split('-')
-            j.extend(range(int(a),int(b)+1))
+            j.extend(range(int(a),int(b)+1))In [28]: a
 
 for i in j:
 
@@ -319,7 +319,8 @@ for b in filelist:
 
 print(filelist[0].keys())
 
-#Out[28]: dict_keys(['_id', 'filename', 'contentType', 'chunkSize', 'md5', 'length', 'uploadDate', 'project_uid', 'job_uid'])
+#Out[28]: dict_keys(['_id', 'filename', 'contentType', 'chunkSize', 'md5', 
+#                    'length', 'uploadDate', 'project_uid', 'job_uid'])
 
 
 ```
