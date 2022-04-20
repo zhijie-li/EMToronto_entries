@@ -232,6 +232,7 @@ db.events.find().sort({_id:-1})
 
 
 db.events.find({created_at:{$lt:new Date((new Date())-1000*60*60*24*14)}}).sort({created_at:-1})
+from bson.objectid import ObjectId
 
 db.events.deleteMany({created_at:{$lt:new Date((new Date())-1000*60*60*24*7)}})
 db.notifications.deleteMany({created_at:{$lt:new Date((new Date())-1*60*60*24*1)}})
@@ -332,7 +333,8 @@ filename image.png
 contentType image/png
 chunkSize 2096128
 md5 bacc69dd2811da9acd832744410ba2b2
-length 28369
+length 28369from bson.objectid import ObjectId
+
 uploadDate 2022-04-18 19:58:43.936000
 project_uid P17
 job_uid J208
@@ -340,4 +342,21 @@ job_uid J208
 
 ```
 
+To search a file by the 'fileid' listed in a db['events'] entry:
+```
+e=list(db['events'].find({'project_uid':'P17','job_uid':'J208'}))
 
+'''
+one of the image records:
+'imgfiles': [{'filetype': 'png', 'filename': 'P17_J208_2d_classes_for_iteration_20.png', 'fileid': '625dc7a9db692bc69d67889b'}, 
+{'filetype': 'pdf', 'filename': 'P17_J208_2d_classes_for_iteration_20.pdf', 'fileid': '625dc7a9db692bc69d67889d'}],
+'''
+
+from bson.objectid import ObjectId
+a=db['fs.files'].find_one({'_id':ObjectId('625dc7a9db692bc69d67889b')})
+
+#search by file name works too:
+a=db['fs.files'].find_one({'filenmae':'P17_J208_2d_classes_for_iteration_20.png'})
+
+
+```
