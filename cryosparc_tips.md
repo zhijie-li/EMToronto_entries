@@ -317,6 +317,11 @@ filelist=list( db['fs.files'].find({'project_uid':P, 'job_uid':J} ) )
 for b in filelist:
     print(b['contentType'],b['filename'])
 
+print(filelist[0].keys())
+
+#Out[28]: dict_keys(['_id', 'filename', 'contentType', 'chunkSize', 'md5', 'length', 'uploadDate', 'project_uid', 'job_uid'])
+
+
 ```
 
 
