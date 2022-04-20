@@ -314,5 +314,9 @@ a=pickle.load(pf)
 
 filelist=list( db['fs.files'].find({'project_uid':P, 'job_uid':J} ) )
 #this list is a list of dicts too
+for b in filelist:
+    print(b['contentType'],b['filename'])
 
 ```
+
+
