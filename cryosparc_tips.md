@@ -197,7 +197,7 @@ for i in j:
 #start mongo
 mongo localhost:$CRYOSPARC_MONGO_PORT/meteor
 #alternatively
-cryosparcm mongoobjectRep
+cryosparcm mongo
 
 show dbs
 use meteor
