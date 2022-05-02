@@ -1,6 +1,12 @@
 # The model ( starting from cryoEM movies)
 
-Import movies => [rigid motion | patch motion] =>[CTFfind | gCTF | patch CTF ( -> patch CTF extract) ] => particle picking[blob | template | topaz |deep ] 
+Import movies 
+
+=> [rigid motion | patch motion] 
+
+=>[CTFfind | gCTF | patch CTF ( -> patch CTF extract) ] 
+
+=> particle picking[blob | template | topaz |deep ] 
 
 => extract actual particle images, save in mrc stacks => local motion ( reads movies, update )
 
