@@ -63,8 +63,11 @@ sudo cp libcufft.so.8.9 /usr/local/lib/
 
 see https://discuss.cryosparc.com/t/worker-connect-does-not-work-during-installation/7862
 
+
 For Ubuntu 22, the libstdc++ is in /usr/lib/x86_64-linux-gnu :
 ```
+cd $cryosparc_worker/deps/anaconda/envs/cryosparc_worker_env/lib
+
 mv libstdc++.so.6.0.28  libstdc++.so.6.0.28_backup 
 ln -s /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30 libstdc++.so.6.0.28 
 ```
