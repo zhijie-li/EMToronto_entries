@@ -48,6 +48,28 @@ cryosparcw connect --worker WorkerName --master MasterName  --ssdpath /SSD    --
 
 ```
 
+## Fixing (silent) Gctf fail (due to missing libcufft.so.8.0)
+First find a libcufft.so.8.0 file.  CCPEM comes with one.
+
+```
+sudo cp libcufft.so.8.9 /usr/local/lib/ 
+```
+
+## Fixing import pycuda.driver fail
+```
+#Error message:
+#_driver.cpython-37m-x86_64-linux-gnu.so: undefined symbol: _ZSt28__throw_bad_array_new_lengthv
+```
+
+see https://discuss.cryosparc.com/t/worker-connect-does-not-work-during-installation/7862
+
+For Ubuntu 22, the libstdc++ is in /usr/lib/x86_64-linux-gnu :
+```
+mv libstdc++.so.6.0.28  libstdc++.so.6.0.28_backup 
+ln -s /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30 libstdc++.so.6.0.28 
+```
+
+
 ## Removing cryoSPARC from $PATH
 
 
