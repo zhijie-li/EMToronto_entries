@@ -417,3 +417,8 @@ ssh-keygen -t rsa
 ssh-copy-id cryosparcw_username@x.x.x.x
 #login with ssh password 
 ```
+If the master uses a alias, make sure the worker has it listed in /etc/hosts:
+
+```
+192.168.1.105   cs_master
+```
