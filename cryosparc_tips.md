@@ -387,3 +387,33 @@ a=db['fs.files'].find_one({'filenmae':'P17_J208_2d_classes_for_iteration_20.png'
 
 
 ```
+
+
+## Setting up worker-only
+
+https://linuxhint.com/run-exit-ssh-command/
+https://serverpilot.io/docs/how-to-use-ssh-public-key-authentication/
+
+Master runs jobs through SSH on workers. In order to allow master send ssh strings to worker, RSA authentication needs to be setup.
+
+On both master and worker computer, install ssh:
+```
+sudo apt install openssh-server
+
+
+sudo vi /etc/ssh/sshd-config
+#uncomment this line:
+# PasswordAuthentication yes
+#Then:
+sudo service ssh restart
+
+```
+
+On master computer under the user who installed cryosparc:
+```
+ssh-keygen -t rsa
+#put empty passphrase
+
+ssh-copy-id cryosparcw_username@x.x.x.x
+#login with ssh password 
+```
