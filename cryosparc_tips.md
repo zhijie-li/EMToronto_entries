@@ -52,7 +52,7 @@ cryosparcw connect --worker WorkerName --master MasterName  --ssdpath /SSD    --
 First find a libcufft.so.8.0 file.  CCPEM comes with one.
 
 ```
-sudo cp libcufft.so.8.9 /usr/local/lib/ 
+sudo cp libcufft.so.8.9 /usr/lib/x86_64-linux-gnu/ 
 ```
 
 ## Fixing import pycuda.driver fail
@@ -69,7 +69,7 @@ For Ubuntu 22, the libstdc++ is in /usr/lib/x86_64-linux-gnu :
 cd $cryosparc_worker/deps/anaconda/envs/cryosparc_worker_env/lib
 
 mv libstdc++.so.6.0.28  libstdc++.so.6.0.28_backup 
-ln -s /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30 libstdc++.so.6.0.28 
+ln -s /lib/x86_64-linux-gnu/libstdc++.so.6.0.30 libstdc++.so.6.0.28 
 ```
 
 
