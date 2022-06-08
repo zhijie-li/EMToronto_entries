@@ -94,58 +94,42 @@ cryosparcw newcuda /usr/local/cuda-11.4
 ```
 
 
-## Starting cryosparc2 ipython environment
+## cryosparcm commands
 ```
+# Starting cryosparc2 ipython environment
 cryosparcm ipython
-```
 
 ## Starting cryosparc2 ipython environment with direct access to "cli" functions
-```
 cryosparcm icli
-```
+
 
 ## Starting meteor shell
-```
 cryosparcm mshell
-```
 
 ## Starting mongo shell
-```
 cryosparcm mongo
-```
 
 ## Displaying (end of) log
-```
 cryosparcm log
-```
+
 
 ## Force updating deps(anaconda, meteor, mongo, nodejs, etc.)
-```
 cryosparcm forcedeps
-```
 
 ## Creating new user
-```
 cryosparcm createuser --email <user_email> --password <user_password> --name "<full name>"
-```
 
 ## Listing users
-```
 cryosparcm listusers
-```
-
 
 ## Backing up and restoring database
-```
 cryosparcm backup --dir <dir> --file <backup_filename>
-```
-Eqivalent to:
-```
+
+#Eqivalent to:
 $CRYOSPARC_ROOT_DIR/deps/external/mongodb/bin/mongodump --archive="$dump_path" --host localhost --port $CRYOSPARC_MONGO_PORT
+
 cryosparcm restore --file <backup_filename>
-```
-Eqivalent to:
-```
+#Eqivalent to:
 $CRYOSPARC_ROOT_DIR/deps/external/mongodb/bin/mongorestore --archive="$restore_path" --host localobjectRephost --port $CRYOSPARC_MONGO_PORT
 ```
 
@@ -155,42 +139,27 @@ $CRYOSPARC_ROOT_DIR/deps/external/mongodb/bin/mongorestore --archive="$restore_p
 The "cryosparcm cli" commands allow directly calling internal control functions.
 
 https://guide.cryosparc.com/setup-configuration-and-management/management-and-monitoring/cli
-
+```
 ## Listing lanes
-```
 cryosparcm cli 'get_scheduler_targets()'
-```
-## Deleting a lane
-```
 cryosparcm cli 'remove_scheduler_lane("LaneName")'
-```
 
-## Turning off automatic caching on job start
-
-Source: https://discuss.cryosparc.com/t/how-to-clear-the-cache-in-v2/2161/12
-```
+#Source: https://discuss.cryosparc.com/t/how-to-clear-the-cache-in-v2/2161/12
 cryosparcm cli 'set_project_param_default("PX","compute_use_ssd",False)'
 cryosparcm cli 'unset_project_param_default("PX","compute_use_ssd")'
-```
+
 ## Managing jobs
 ### Getting job information
-```
 cryosparcm cli 'get_job("PX","JXXXX", kwargs)'
-```
-This returns the mongodb entry of the job as a dictionary. The "kwargs" can be a list of keywords of interest, such as "running_at", "job_type", "_id", "job_dir", "output_results", "input_slot_groups", etc.. To find all keys, use this command:
-```
+
+#This returns the mongodb entry of the job as a dictionary. The "kwargs" can be a list of keywords of interest, such as "running_at", "job_type", "_id", "job_dir", "output_results", "input_slot_groups", etc.. To find all keys, use this command:
+
 cryosparcm cli 'get_job("PX","JXXXX").keys()'
-```
-Deleting a job
-```
 cryosparcm cli 'delete_job("PX","JXXXX" )'
-```
-Clearing a job
-```
 cryosparcm cli 'delete_job("PX","JXXXX" )'
 ```
 
-A script for doing these for multiple jobs:
+# A script for doing these for multiple jobs:
 
 ```
 #!/usr/bin/env python3
