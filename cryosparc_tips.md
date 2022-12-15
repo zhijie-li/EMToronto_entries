@@ -16,12 +16,14 @@ https://guide.cryosparc.com/setup-configuration-and-management/management-and-mo
 #!/bin/bash
 #cryoSPARC2.sh
 /usr/local/cryosparc2/cryosparc2_master/bin/cryosparcm start
-/usr/local/cryosparc2/cryosparc2_worker/bin/cryosparcw connect --worker ThisMachine --master ThisMachine  --update --gpus 0,1 --ssdpath /SSD_disk  --lane default
-```
 
-For freshly installed cryosparc2, there may not be a lane already. The above worker startup command should be changed to:
+#below registers a worker to the master
+#/usr/local/cryosparc2/cryosparc2_worker/bin/cryosparcw connect --worker ThisMachine --master ThisMachine  --update --gpus 0,1 --ssdpath /SSD_disk  --lane default
 
-```
+
+#For freshly installed cryosparc2, there may not be a lane already. The above worker startup command should be changed to:
+
+
 /usr/local/cryosparc2/cryosparc2_worker/bin/cryosparcw connect --worker ThisMachine --master ThisMachine   --gpus 0,1 --ssdpath /SSD_disk  --lane default --newlane
 ```
 
