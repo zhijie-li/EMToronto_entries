@@ -411,6 +411,9 @@ sudo apt -y install git cmake
 sudo apt -y install libopenmpi-dev
 sudo apt -y install libx11-dev libtiff-dev libssl-dev mesa-common-dev libnetcdf-dev libglew-dev
 sudo apt -y install build-essential
+#to compile pymol
+sudo apt -y install libglm-dev
+
 
 #https://www.kevin-custer.com/blog/disabling-the-plymouth-boot-screen-in-ubuntu-20-04/
 #sudo vi /etc/default/grub
@@ -424,3 +427,4 @@ sudo apt autoremove
 #sudo rm -rf /usr/share/plymouth
 
 ```
+
