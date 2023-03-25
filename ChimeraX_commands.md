@@ -1,5 +1,18 @@
 ## atom selection
-**ChimeraX style**
+
+#Pymol style
+
+https://pymol.sourceforge.net/newman/user/S0220commands.html
+```
+/pept/lig/b/142/ca
+```
+
+# Chimera style
+```
+#1:123.a@ca zone <5 & sel
+```
+
+# ChimeraX style
 https://www.cgl.ucsf.edu/chimerax/docs/user/commands/atomspec.html
 
 ```
@@ -25,10 +38,6 @@ https://www.cgl.ucsf.edu/chimerax/docs/user/atomtypes.html
 
 
 
-**Chimera style**
-```
-#1:123.a@ca zone <5 & sel
-```
 
 ## General display
 ```
