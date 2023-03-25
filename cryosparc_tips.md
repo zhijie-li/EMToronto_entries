@@ -1,34 +1,33 @@
 # Links
-## CryoSPARC job documents
+## CryoSPARC documents
 
 https://guide.cryosparc.com/processing-data/all-job-types-in-cryosparc
 
 https://cryosparc.com/docs/reference/jobs
 
-## "cryosparcm cli" commands
-
 https://guide.cryosparc.com/setup-configuration-and-management/management-and-monitoring/cli
 
 
 
-# An example cryoSPARC2 start script (single workstation)
+## Registering a worker
 ```
-#!/bin/bash
-#cryoSPARC2.sh
-/usr/local/cryosparc2/cryosparc2_master/bin/cryosparcm start
-
-#below registers a worker to the master
-#/usr/local/cryosparc2/cryosparc2_worker/bin/cryosparcw connect --worker ThisMachine --master ThisMachine  --update --gpus 0,1 --ssdpath /SSD_disk  --lane default
-
-
-#For freshly installed cryosparc2, there may not be a lane already. The above worker startup command should be changed to:
-
-
+#registering a worker to the master
 /usr/local/cryosparc2/cryosparc2_worker/bin/cryosparcw connect --worker ThisMachine --master ThisMachine   --gpus 0,1 --ssdpath /SSD_disk  --lane default --newlane
 ```
+```
+#update lane
+/usr/local/cryosparc2/cryosparc2_worker/bin/cryosparcw connect --worker ThisMachine --master ThisMachine  --update --gpus 0,1 --ssdpath /SSD_disk  --lane default
+```
+## "ERROR: This hostname is already registered! Remove it first."
 
+```
+cryosparcm cli 'remove_scheduler_lane("default")'
+```
+## Changing CUDA version
+```
+cryosparcw newcuda /usr/local/cuda-11.4
+```
 
-# Tricks and solutions
 
 ## Changing Database location
 https://discuss.cryosparc.com/t/how-to-change-database-directory-in-cryosparc-v2/2068/6
@@ -37,20 +36,7 @@ https://discuss.cryosparc.com/t/how-to-change-database-directory-in-cryosparc-v2
 The location of the cache directory is set in the cryosparcw start command in "--ssdpath /SSD_disk". The name of the cache folder is usually "instance_MachineName:39001".
 
 
-## Fixing "ERROR: This hostname is already registered! Remove it first."
-
-```
-#Assuming current lane is "default"
-
-cryosparcm cli 'remove_scheduler_lane("default")'```
-
-cryosparcm restart
-
-cryosparcw connect --worker WorkerName --master MasterName  --ssdpath /SSD    --newlane --lane default
-
-```
-
-## Fixing (silent) Gctf fail (due to missing libcufft.so.8.0)
+## Silent Gctf fail
 First find a libcufft.so.8.0 file.  CCPEM comes with one.
 
 ```
@@ -58,29 +44,24 @@ sudo cp libcufft.so.8.9 /usr/lib/x86_64-linux-gnu/
 ```
 
 ## Fixing import pycuda.driver fail
+
 ```
-#Error message:
 #_driver.cpython-37m-x86_64-linux-gnu.so: undefined symbol: _ZSt28__throw_bad_array_new_lengthv
 ```
-
-see https://discuss.cryosparc.com/t/worker-connect-does-not-work-during-installation/7862
-
 
 For Ubuntu 22, the libstdc++ is in /lib/x86_64-linux-gnu :
 ```
 cd $cryosparc_worker/deps/anaconda/envs/cryosparc_worker_env/lib
-
 mv libstdc++.so.6.0.28  libstdc++.so.6.0.28_backup 
 ln -s /lib/x86_64-linux-gnu/libstdc++.so.6.0.30 libstdc++.so.6.0.28 
 ```
+https://discuss.cryosparc.com/t/worker-connect-does-not-work-during-installation/7862
 
 
 ## Removing cryoSPARC from $PATH
 
 
-With a minor modification to the cryosparcm and cryosparcw scripts, even the cryoSPARC_master/bin and cryoSPARC_master/bin directories can be removed from $PATH:
-
-change
+change cryosparcm/w :
 ```
 script_dir="$( cd "$(dirname "$0")" ; pwd -P )"
 ```
@@ -90,14 +71,13 @@ script_dir="$(dirname "$(realpath "$0")")"
 
 ```
 
-## Changing CUDA version
-```
-cryosparcw newcuda /usr/local/cuda-11.4
-```
 
 
 ## cryosparcm commands
 ```
+#getting cryosparc anaconda environment
+eval $(cryosparcm env)
+
 # Starting cryosparc2 ipython environment
 cryosparcm ipython
 
@@ -138,9 +118,8 @@ $CRYOSPARC_ROOT_DIR/deps/external/mongodb/bin/mongorestore --archive="$restore_p
 
 # "cryosparcm cli" commands
 
-The "cryosparcm cli" commands allow directly calling internal control functions.
-
 https://guide.cryosparc.com/setup-configuration-and-management/management-and-monitoring/cli
+
 ```
 ## Listing lanes
 cryosparcm cli 'get_scheduler_targets()'
