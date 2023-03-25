@@ -2,10 +2,10 @@
 ### Coot style
 ```
 [str chain, int res_no, str ins_code, str atm, str alt_conf]
-
+["A", 81, "", " CA ", ""]
 ```
 
-["A", 81, "", " CA ", ""]
+
 ### [Pymol style](https://pymol.sourceforge.net/newman/user/S0220commands.html)
 ```
 /pept/lig/b/142/ca
