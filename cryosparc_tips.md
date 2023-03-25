@@ -375,35 +375,3 @@ If the master uses a alias, make sure the worker has it listed in /etc/hosts:
 
 
 
-## Install software packages on fresh Ubuntu-mate-22.04
-
-```
-sudo apt update
-sudo apt upgrade
-sudo apt -y remove unattended-upgrades
-
-sudo apt -y install nfs-kernel-server openssh-server
-
-sudo apt -y install vim tree wget curl filezilla bless
-sudo apt -y install gparted net-tools
-sudo apt -y install git cmake
-sudo apt -y install libopenmpi-dev
-sudo apt -y install libx11-dev libtiff-dev libssl-dev mesa-common-dev libnetcdf-dev libglew-dev
-sudo apt -y install build-essential
-#to compile pymol
-sudo apt -y install libglm-dev
-
-
-#https://www.kevin-custer.com/blog/disabling-the-plymouth-boot-screen-in-ubuntu-20-04/
-#sudo vi /etc/default/grub
-#GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
-#------------>
-#GRUB_CMDLINE_LINUX_DEFAULT="quiet"
-
-#sudo update-grub
-#sudo apt purge plymouth
-sudo apt autoremove
-#sudo rm -rf /usr/share/plymouth
-
-```
-
