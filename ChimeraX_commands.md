@@ -1,4 +1,5 @@
 ## atom selection
+**ChimeraX style**
 https://www.cgl.ucsf.edu/chimerax/docs/user/commands/atomspec.html
 
 ```
@@ -21,6 +22,13 @@ name tm1 /a:34-64
 ```
 __atom types__:
 https://www.cgl.ucsf.edu/chimerax/docs/user/atomtypes.html
+
+
+
+**Chimera style**
+```
+#1:123.a@ca zone <5 & sel
+```
 
 ## General display
 ```
