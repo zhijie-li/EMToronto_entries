@@ -15,9 +15,9 @@ name tm1 /a:34-64
 
 #a level symbol: @ (atom-based cutoff), : (residue-based), / (chain-based), or # (atomic-model-based)
 
-@nz  @<  3.8       #  atoms within 3.8 Å of atoms named NZ
-#1:gtp  :<  10.5   #  residues with any atom within 10.5 Å of any atom in GTP residue(s) of model 1
-#1:gtp  :>  10.5   #  residues farther than 10.5 Å from any atom in GTP residue(s) of model 1; the complement of the previous example
+@nz  @<  3.8       #  __atoms__    within 3.8 Å of atoms named NZ
+#1:gtp  :<  10.5   #  __residues__ with any atom within 10.5 Å of any atom in GTP residue(s) of model 1
+#1:gtp  :>  10.5     
 ```
 __atom types__:
 https://www.cgl.ucsf.edu/chimerax/docs/user/atomtypes.html
