@@ -12,8 +12,9 @@ https://guide.cryosparc.com/setup-configuration-and-management/management-and-mo
 ## Registering a worker
 Worker requirements:
 
-*It should be able to access the same data directory structure
-*Ideally it is installed with by the user having the same userID as the master.
+1. It should be able to access the same data directory structure
+
+2. Ideally it is installed with by the user having the same userID as the master.
 
 
 ```
