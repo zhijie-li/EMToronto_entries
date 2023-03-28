@@ -4,7 +4,7 @@ https://gist.github.com/a-rodin/fef3f543412d6e1ec5b6cf55bf197d7b
 <img src="https://render.githubusercontent.com/render/math?math=\sum_{hkl}\sum_{J}">
 
 
-$$ \int_{hkl}\dx\sum_{J} $$
+$$ \int_{hkl}\sum_{J} $$
 
 <img src="https://render.githubusercontent.com/render/math?math={P(A|B)=\frac{\P(B|A)\P(A)}{\P(B|A)\P(A)\%2BP(B|\neg A)\P(\neg A)}}##gh-light-mode-only">
 
