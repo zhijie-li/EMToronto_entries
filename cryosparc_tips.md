@@ -10,6 +10,12 @@ https://guide.cryosparc.com/setup-configuration-and-management/management-and-mo
 
 
 ## Registering a worker
+Worker requirements:
+
+*It should be able to access the same data directory structure
+*Ideally it is installed with by the user having the same userID as the master.
+
+
 ```
 #registering a worker to the master
 /usr/local/cryosparc2/cryosparc2_worker/bin/cryosparcw connect --worker ThisMachine --master ThisMachine   --gpus 0,1 --ssdpath /SSD_disk  --lane default --newlane
