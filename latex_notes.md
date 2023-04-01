@@ -17,3 +17,7 @@ When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are
 $$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
 
 $$ \int_{hkl}\sum_{J} $$
+
+
+https://towardsdatascience.com/write-markdown-latex-in-the-jupyter-notebook-10985edb91fd
+
