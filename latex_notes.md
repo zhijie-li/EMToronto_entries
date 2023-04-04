@@ -10,7 +10,7 @@ https://gist.github.com/a-rodin/fef3f543412d6e1ec5b6cf55bf197d7b
 
 Euler's identity: <img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} %2B 1 = 0">
 
-## Github supports latex now:
+## Github supports latex:
 
 When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are 
 
